@@ -1,0 +1,35 @@
+<tr id="classroomRow_<%= classroom.id%>">
+  <td><%= classroom.name %></td>
+  <td><%= classroom.capacity %></td>
+  <td>
+    <div class="button-group" role="group" aria-label="Actions">
+      <button type="button" name="updateClassroom" data-toggle= "modal" data-target="#updateClassroom_<%= classroom.id %>" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></button>
+      <%= link_to "#{content_tag(:i, '', :class => ("fa fa-trash"))}".html_safe, classroom_path(classroom), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger btn-sm", remote: true%>
+    </div>
+
+    <%= simple_form_for(classroom, html: {class: "form-horizontal"}, remote: true) do |f| %>
+      <%= f.error_notification %>
+      <div class="modal fade" id="updateClassroom_<%= classroom.id %>" tabindex="-1" role="dialog" aria-labelledby="classroomModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="classroomModalLabel"><i class="fa fa-plus"> Edit Classroom </i></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <br>
+              <%= f.input :name %>
+              <%= f.input :capacity %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+              <%= f.button :submit, "Update", class: "btn btn-primary btn-sm" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </td>
+</tr>

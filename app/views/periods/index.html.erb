@@ -1,0 +1,19 @@
+<%= provide(:page_title, "School Periods") %>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody id="periodTbdy">
+    <%=render @periods %>
+  </tbody>
+</table>
+<button type="button" name="newPeriod" data-toggle= "modal" data-target="#newPeriod" class="btn btn-sm btn-primary float-right"><i class="fa fa-plus"></i></button>
+
+<%= render(:partial => 'modal-form', :locals => {period: @period}) %>

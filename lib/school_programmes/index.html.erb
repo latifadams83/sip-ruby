@@ -1,0 +1,17 @@
+<%= provide(:page_title, "Programmes") %>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th >Actions</th>
+    </tr>
+  </thead>
+
+  <tbody id="progTbdy">
+    <%= render @school_programmes %>
+  </tbody>
+</table>
+<button type="button" name="newProgramme" data-toggle= "modal" data-target="#newProgramme" class="btn btn-sm btn-primary float-right"><i class="fa fa-plus"></i></button>
+
+<%= render(:partial => 'modal-form', :locals => {school_programme: @school_programme}) %>

@@ -1,0 +1,13 @@
+<%= simple_form_for(gradelevel) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :level, collection: 1..10 %>
+
+  <div class="row">
+    <div class="col-sm-9 offset-sm-3">
+      <%= link_to "Cancel", send(back_link), class: "btn btn-secondary" %>
+      <%= f.button :submit, "#{action_text}", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

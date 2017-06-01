@@ -1,0 +1,22 @@
+<%= simple_form_for(school_info, url: school_infos_path, html: {class: "container"}) do |f| %>
+  <%= f.error_notification %>
+
+    <%= f.input :name %>
+    <%= f.input :alias %>
+    <%= f.input :code %>
+    <%= f.input :slogan %>
+    <%= f.input :location %>
+    <%= f.input :city %>
+    <%= f.input :region %>
+    <%= f.input :postal_code %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :logo %>
+
+  <div class="row">
+    <div class="col-sm-9 offset-sm-3">
+      <%= link_to "Back", send(back_link), class: "btn btn-secondary" %>
+      <%= f.button :submit, "#{action_text}", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

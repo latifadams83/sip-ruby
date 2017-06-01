@@ -1,0 +1,3 @@
+class Gradelevel < ApplicationRecord
+
+end

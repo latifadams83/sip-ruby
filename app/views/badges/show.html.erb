@@ -1,0 +1,48 @@
+<%= provide(:page_title, "#{@badge.full_name}")%>
+<table class="table table-sm table striped">
+  <tr>
+    <td><strong>Name:</strong></td>
+    <td><%= @badge.full_name %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Programme:</strong></td>
+    <td><%= @badge.programme.name %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Gradelevel:</strong></td>
+    <td><%= @badge.gradelevel.name %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Start date:</strong></td>
+    <td><%= @badge.start_date %></td>
+  </tr>
+
+  <tr>
+    <td><strong>End date:</strong></td>
+    <td><%= @badge.end_date %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Status:</strong></td>
+    <td><%= @badge.status? ? "Active" : "In Active" %></td>
+  </tr>
+  <tr>
+    <td><strong>Created By:</strong></td>
+    <td>
+      <%= @badge.created_by.present? ? User.find_by_id(@badge.created_by).email.humanize : nil %>
+      <%= "on #{@badge.created_at.strftime('%d - %m - %y, @ %H: %M: %S') }" %>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Upddated By:</strong></td>
+    <td><%= @badge.updated_by.present? ? User.find_by_id(@badge.updated_by).email.humanize : nil %>
+       <%= "on #{@badge.updated_at.strftime('%d - %m - %y, @ %H: %M: %S') }" %>
+    </td>
+  </tr>
+</table>
+
+<%= link_to 'Edit', edit_badge_path(@badge) %> |
+<%= link_to 'Back', badges_path %>

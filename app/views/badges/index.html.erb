@@ -1,0 +1,20 @@
+<%= provide(:page_title, "Badges") %>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Programme</th>
+      <th>Gradelevel</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @badges %>
+  </tbody>
+</table>
+<%= link_to("#{content_tag(:i, ' Add', class: ['fa fa-plus'])}".html_safe, new_badge_path, class: "btn btn-primary btn-sm float-right")%>

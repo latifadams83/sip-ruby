@@ -1,0 +1,5 @@
+$('#updateprogramme_<%= @programme.id%>').modal('toggle');
+$('#programmeRow_<%= @programme.id %>').fadeOut(500, function () {
+  $(this).remove();
+  $('#progTbdy').append('<%= j render @programme %>');
+});

@@ -1,0 +1,17 @@
+<tr id="badgeRow_<%= badge.id%>">
+  <td><%= badge.full_name %></td>
+  <td><%= badge.programme.name %></td>
+  <td><%= badge.gradelevel.name %></td>
+  <td><%= badge.start_date %></td>
+  <td><%= badge.end_date %></td>
+  <td>
+    <%= badge.status? ? "#{content_tag(:span, 'Active', class:['badge', 'badge-success'])}".html_safe : "#{content_tag(:span, 'In Active', class:['badge', 'badge-danger'])}".html_safe %>
+  </td>
+  <td>
+    <div class="button-group" role="group" aria-label="Actions">
+      <%= link_to "#{content_tag(:i, '', :class => ("fa fa-eye"))}".html_safe, badge, class: "btn btn-primary btn-sm" %>
+      <%= link_to "#{content_tag(:i, '', :class => ("fa fa-pencil"))}".html_safe, edit_badge_path(badge), class: "btn btn-warning btn-sm" %>
+      <%= link_to "#{content_tag(:i, '', :class => ("fa fa-trash"))}".html_safe, badge_path(badge), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger btn-sm", remote: true%>
+    </div>
+  </td>
+</tr>

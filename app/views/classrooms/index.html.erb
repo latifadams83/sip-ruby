@@ -1,0 +1,17 @@
+<%= provide(:page_title, "classrooms") %>
+
+  <table class="table table-sm table-striped">
+    <thead>
+      <tr>
+        <th>Classroom</th>
+        <th>Capacity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="classroomTbdy">
+      <%= render @classrooms %>
+    </tbody>
+  </table>
+  <button type="button" name="newClassroom" data-toggle= "modal" data-target="#newClassroom" class="btn btn-sm btn-primary float-right"><i class="fa fa-plus"></i></button>
+
+  <%= render(:partial => 'modal-form', :locals => {classroom: @classroom}) %>

@@ -1,0 +1,5 @@
+$('#updatePeriod_<%= @period.id%>').modal('toggle');
+$('#periodRow_<%= @period.id %>').fadeOut(500, function () {
+  $(this).remove();
+  $('#periodTbdy').append('<%= j render @period %>');
+});

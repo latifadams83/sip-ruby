@@ -1,0 +1,16 @@
+<%= simple_form_for(badge, html: {class: "container"}) do |f| %>
+  <%= f.error_notification %>
+
+    <%= f.input :name %>
+    <%= f.association :programme %>
+    <%= f.association :gradelevel %>
+    <%= f.input :start_date, as: :string, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
+
+  <div class="row">
+    <div class="col-sm-9 offset-sm-3">
+      <%= link_to "Back", send(back_link), class: "btn btn-secondary" %>
+      <%= f.button :submit, "#{action_text}", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

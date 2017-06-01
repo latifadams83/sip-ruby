@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gradelevel.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @gradelevel.level %>
+</p>
+
+<p>
+  <strong>Next level:</strong>
+  <%= @gradelevel.next_level.present? ? School::Gradelevel.find_by_id(@gradelevel.next_level).name : "N/A"  %>
+</p>
+<div class="row">
+  <div class="col-sm-12">
+    <%= link_to 'Back', school_gradelevels_path, class: "btn btn-secondary" %>
+    <%= link_to 'Edit', edit_school_gradelevel_path(@gradelevel), class: "btn btn-danger"%>
+  </div>
+</div>

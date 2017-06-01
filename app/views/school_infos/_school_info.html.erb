@@ -1,0 +1,61 @@
+<table class="table table-sm table-striped">
+  <tr>
+    <td><strong>Name:</strong></td>
+    <td><%= school_info.name %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Alias:</strong></td>
+    <td><%= school_info.alias %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Code:</strong></td>
+    <td><%= school_info.code %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Slogan:</strong></td>
+    <td><%= school_info.slogan %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Location:</strong></td>
+    <td><%= school_info.location %></td>
+  </tr>
+
+  <tr>
+    <td><strong>City:</strong></td>
+    <td><%= school_info.city %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Region:</strong></td>
+    <td><%= school_info.region %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Postal code:</strong></td>
+    <td><%= school_info.postal_code %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Email:</strong></td>
+    <td><%= school_info.email %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Phone:</strong></td>
+    <td><%= school_info.phone %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Logo:</strong></td>
+    <td><%= school_info.logo %></td>
+  </tr>
+
+</table>
+<div class="btn-group" role="group" aria-label="SchoolInfoOperations">
+  <%= link_to 'Edit Info', edit_school_infos_path, class: "btn btn-warning" %>
+  <%= link_to 'Delete', school_infos_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+</div>

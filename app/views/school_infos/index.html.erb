@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>School Infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Alias</th>
+      <th>Code</th>
+      <th>Slogan</th>
+      <th>Location</th>
+      <th>City</th>
+      <th>Region</th>
+      <th>Postal code</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Logo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @school_infos.each do |school_info| %>
+      <tr>
+        <td><%= school_info.name %></td>
+        <td><%= school_info.alias %></td>
+        <td><%= school_info.code %></td>
+        <td><%= school_info.slogan %></td>
+        <td><%= school_info.location %></td>
+        <td><%= school_info.city %></td>
+        <td><%= school_info.region %></td>
+        <td><%= school_info.postal_code %></td>
+        <td><%= school_info.email %></td>
+        <td><%= school_info.phone %></td>
+        <td><%= school_info.logo %></td>
+        <td><%= link_to 'Show', school_info %></td>
+        <td><%= link_to 'Edit', edit_school_info_path(school_info) %></td>
+        <td><%= link_to 'Destroy', school_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New School Info', new_school_info_path %>

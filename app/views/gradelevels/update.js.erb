@@ -1,0 +1,5 @@
+$('#updateGradelevel_<%= @gradelevel.id%>').modal('toggle');
+$('#gradelevelRow_<%= @gradelevel.id %>').fadeOut(500, function () {
+  $(this).remove();
+  $('#gradelevelTbdy').append('<%= j render @gradelevel %>');
+});

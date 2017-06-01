@@ -1,0 +1,17 @@
+<%= provide(:page_title, "Grade Levels") %>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>Level</th>
+      <th >Actions</th>
+    </tr>
+  </thead>
+
+  <tbody id="gradelevelTbdy">
+    <%= render @gradelevels %>
+  </tbody>
+</table>
+<button type="button" name="newGradelevel" data-toggle= "modal" data-target="#newGradelevel" class="btn btn-sm btn-primary float-right"><i class="fa fa-plus"></i></button>
+
+<%= render(:partial => 'modal-form', :locals => {gradelevel: @gradelevel}) %>

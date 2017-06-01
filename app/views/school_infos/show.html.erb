@@ -1,0 +1,7 @@
+<%= provide(:page_title, "School Information")%>
+
+<% if @school_info.nil? %>
+  <%= link_to 'Add School Information', new_school_infos_path %>
+<% else %>
+  <%= render(:partial => 'school_info', locals: {school_info: @school_info})%>
+<% end %>
