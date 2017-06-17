@@ -1,0 +1,31 @@
+<div class="card-header">
+  <ul class="nav nav-tabs card-header-tabs">
+    <% if staff.new_record? %>
+      <li class="nav-item">
+        <%= link_to("Profile", new_staff_path, class: "nav-link #{yield :personal_active}") %>
+      </li>
+      <li class="nav-item">
+        <%= link_to("Employment Info", "", class: "nav-link #{yield :employment_active}") %>
+      </li>
+      <li class="nav-item">
+        <%= link_to("Qualification", "", class: "nav-link #{yield :qualification_active}") %>
+      </li>
+      <li class="nav-item">
+        <%= link_to("Contact Info", "", class: "nav-link #{yield :contact_active}") %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to("Personal Info", new_staff_path, class: "nav-link #{yield :personal_active}") %>
+      </li>
+      <li class="nav-item">
+        <%= link_to("Employment Info", "", class: "nav-link #{yield :employment_active}") %>
+      </li>
+      <li class="nav-item">
+        <%= link_to("Qualification", "", class: "nav-link #{yield :qualification_active}") %>
+      </li>
+      <li class="nav-item">
+        <%= link_to("Contact Info", "", class: "nav-link #{yield :contact_active}") %>
+      </li>
+    <% end %>
+  </ul>
+</div>

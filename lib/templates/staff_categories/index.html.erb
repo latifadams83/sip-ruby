@@ -1,0 +1,17 @@
+<%= provide(:page_title, "Staff Categories") %>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody id="categoryTbdy">
+    <%= render @staff_categories %>
+  </tbody>
+</table>
+<button type="button" name="newCategory" data-toggle= "modal" data-target="#newCategory" class="btn btn-sm btn-primary float-right"><i class="fa fa-plus"></i></button>
+
+<%= render(:partial => 'modal-form', :locals => {staff_category: @staff_category}) %>

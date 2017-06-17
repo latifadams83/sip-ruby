@@ -17,4 +17,7 @@
 //= require turbolinks
 // require_tree .
 //= require global
+//= require staffs
 //= require jquery-ui/widgets/datepicker
+// require metismenu
+// require dashboard

@@ -1,0 +1,10 @@
+<tr id="staffRow_<%= staff.id %>">
+  <td><%= staff.full_name %></td>
+  <td><%= staff.staff_category.name %></td>
+  <td>
+    <div class="button-group" role="group" aria-label="Actions">
+      <%= link_to "#{content_tag(:i, '', :class => ("fa fa-eye"))}".html_safe, staff_path(staff), class: "btn btn-primary btn-sm"%>
+      <%= link_to "#{content_tag(:i, '', :class => ("fa fa-pencil"))}".html_safe, edit_staff_path(staff), class: "btn btn-warning btn-sm"%>
+    </div>
+  </td>
+</tr>

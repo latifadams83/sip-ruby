@@ -1,0 +1,9 @@
+<%= provide(:page_title, "#{content_tag(:i, ' Add Staff ', class: 'fa fa-plus')}".html_safe)%>
+<%= provide(:personal_active, "active") %>
+
+
+<div class="card mb-3">
+  <%= render(partial: 'tabs', locals: {staff: @staff}) %>
+
+  <%= render(partial: 'form', locals: {staff: @staff, back_link: "staffs_path", link_params: [],action_text: "Create"}) %>
+</div>

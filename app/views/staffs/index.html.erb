@@ -1,0 +1,17 @@
+<%= provide(:page_title, "#{content_tag(:i, ' Staff', class: 'fa fa-list')}".html_safe)%>
+<div class="card">
+  <table class="table table-sm table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render @staffs %>
+    </tbody>
+  </table>
+</div>
+<%= link_to 'New Staff', new_staff_path %>

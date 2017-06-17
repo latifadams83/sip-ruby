@@ -29,6 +29,9 @@ gem 'devise'
 gem 'simple_form'
 gem 'carrierwave', '~> 1.0'
 gem 'friendly_id', '~> 5.2', '>= 5.2.1'
+gem "breadcrumbs_on_rails"
+gem 'will_paginate', '~> 3.1.0'
+gem 'jquery-datatables-rails', '~> 3.4.0'
 # gem "simple_calendar", "~> 2.0"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

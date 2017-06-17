@@ -1,0 +1,28 @@
+<%= simple_form_for(staff, html: {class: "vertical_form"}) do |f| %>
+<div class="card-block">
+  <%= f.error_notification %>
+  <strong>Personal Information</strong><hr class="mt-0">
+  <div class="form-group row">
+    <div class="form-control-label col-sm-2">
+      <label for="name">Name</label>
+    </div>
+    <div class="col-sm-10">
+
+      <%= f.input :title, collection: ['Mr.', 'Mrs', 'Master', 'Dr.', 'Prof.', 'Mallam', 'Maulvi', 'Sheik', 'Pastor', 'Reverend', 'Father', 'other'], input_html: {class: 'custom-select'},input_html: {class: 'col-md-10'}, label_html: {class: 'col-md-2'}, label: false, hint: 'Salutation'%>
+      <%= f.input :first_name, label: false, hint: 'Firstname' %>
+      <%= f.input :last_name, label: false, hint: 'Lastname' %>
+    </div>
+  </div>
+  <%= f.input :gender, collection: ['Male', 'Female'], input_html: {class: 'col-sm-10 custom-select'}, label_html: {class: 'col-sm-2'}, wrapper_html: {class: "row"} %>
+
+</div>
+
+<div class="card-block">
+  <div class="row">
+    <div class="col-md-9 offset-md-3">
+      <%= link_to "Cancel", send(back_link, link_params), class: "btn btn-secondary " %>
+      <%= f.button :submit, "#{action_text}", class: "btn btn-primary ml-5" %>
+    </div>
+  </div>
+</div>
+<% end %>

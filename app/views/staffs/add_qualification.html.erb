@@ -1,0 +1,23 @@
+<%= provide(:page_title, "#{content_tag(:i, ' Add Qualification', class: 'fa fa-plus')}".html_safe)%>
+<%= provide(:qualification_active, "active") %>
+
+<%= render partial: 'staff_tabs', locals: {obj: @staff} %>
+<%= simple_form_for(@staff_qualification, url: create_qualification_staff_path, method: 'post') do |f| %>
+  <div class="card" style="border-top: none !important;">
+    <div class="card-block">
+      <%= f.error_notification %>
+      <%= f.input :certificate_type, collection: ['Academic', 'Professional'] %>
+      <%= f.input :certificate_name %>
+      <%= f.input :start_date %>
+      <%= f.input :earned_date %>
+      <%= f.input :description,as: :text %>
+    </div>
+    <div class="card-block">
+      <div class="row">
+        <div class="col-sm-9 offset-sm-3">
+          <%= f.button :submit, "Save & Next", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

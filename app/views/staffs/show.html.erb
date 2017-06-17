@@ -1,0 +1,63 @@
+<%= provide(:page_title, "#{content_tag(:i, ' Staff Information', class: 'fa fa-eye')}".html_safe)%>
+<%= provide(:personal_active, "active") %>
+
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="card" style="border-top: none !important;">
+      <div class="card-block">
+        <table class="table table-sm table-striped">
+          <tr>
+            <td><strong>Name:</strong></td>
+            <td><%= @staff.full_name %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Gender:</strong></td>
+            <td><%= @staff.gender %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Date of birth:</strong></td>
+            <td><%= @staff.date_of_birth %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Religious denomination:</strong></td>
+            <td><strong><%= @staff.religious_denomination %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Category:</strong></td>
+            <td><%= @staff.staff_category.name %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Marital status:</strong></td>
+            <td><%= @staff.marital_status %></td>
+          </tr>
+
+
+          <tr>
+            <td><strong>Joining date:</strong></td>
+            <td><%= @staff.joining_date %></td>
+          </td>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card">
+      <div class="card-block">
+        <tr>
+          <td>Headshot:</strong></td>
+          <td><%= image_tag(@staff.photo, size:'100', class: "img-thumnail") %></td>
+        </tr>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_staff_path(@staff) %> |
+<%= link_to 'Back', staffs_path %>

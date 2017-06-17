@@ -1,0 +1,36 @@
+<tr id="qualificationRow_<%= staff_qualification.id %>">
+  <td><%= staff_qualification.certificate_name %></td>
+  <td><%= staff_qualification.certificate_type %></td>
+  <td>
+    <div class="button-group" role="group" aria-label="Actions">
+      <button type="button" name="updateQualification" data-toggle= "modal" data-target="#updateQualification_<%= staff_qualification.id %>" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></button>
+      <%= link_to "#{content_tag(:i, '', :class => ("fa fa-trash"))}".html_safe, remove_qualification_staff_path(staff_qualification), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger btn-sm", remote: true%>
+    </div>
+
+    <%= simple_form_for(staff_qualification, url: update_qualification_staff_path(staff_qualification) , html: {class: "form-horizontal"}, remote: true, method: 'put') do |f| %>
+      <%= f.error_notification %>
+      <div class="modal fade" id="updateQualification_<%= staff_qualification.id %>" tabindex="-1" role="dialog" aria-labelledby="QualificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="QualificationModalLabel"><i class="fa fa-pencil"> Staff Qualification</i></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= f.input :certificate_type, label: false, prompt: "Certificate type",collection: ['Academic', 'Professional'] %>
+              <%= f.input :certificate_name, label: false, placeholder: "Certificate title" %>
+              <%= f.input :earned_date, as: :string, input_html: {class: 'datepicker'} , label: false, placeholder: "Date awarded"  %>
+              <%= f.input :description, label: false, placeholder: "Description" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+              <%= f.button :submit, "Update", class: "btn btn-primary btn-sm" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </td>
+</tr>
