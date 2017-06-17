@@ -18,7 +18,7 @@ class ProgrammesController < ApplicationController
 
   def create
     @programme = Programme.new(programme_params)
-    @programme.created_by = current_user.id
+    @programme.created_by = current_user.email
 
     respond_to do |format|
       if @programme.save
@@ -35,7 +35,7 @@ class ProgrammesController < ApplicationController
 
   def update
     respond_to do |format|
-      @programme.updated_by = current_user.id
+      @programme.updated_by = current_user.email
       if @programme.update(programme_params)
         format.html { redirect_to @programme, notice: 'Programme was successfully updated.' }
         format.json { render :show, status: :ok, location: @programme }

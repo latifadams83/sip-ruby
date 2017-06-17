@@ -7,8 +7,8 @@ class CreateBadges < ActiveRecord::Migration[5.0]
       t.date :start_date
       t.date :end_date
       t.boolean :status, null: false, default: true
-      t.integer :created_by
-      t.integer :updated_by
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
     end
   end

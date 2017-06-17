@@ -17,7 +17,7 @@ class SchoolInfosController < ApplicationController
 
   def create
     @school_info = SchoolInfo.new(school_info_params)
-    @school_info.created_by = current_user.id
+    @school_info.created_by = current_user.email
 
     respond_to do |format|
       if @school_info.save
@@ -32,7 +32,7 @@ class SchoolInfosController < ApplicationController
 
   def update
     respond_to do |format|
-      @school_info.updated_by = current_user.id
+      @school_info.updated_by = current_user.email
       if @school_info.update(school_info_params)
         format.html { redirect_to school_infos_path, notice: 'School info was successfully updated.' }
         format.json { render :show, status: :ok, location: @school_info }

@@ -4,8 +4,8 @@ class CreatePeriods < ActiveRecord::Migration[5.0]
       t.string :name
       t.time :start_time
       t.time :end_time
-      t.integer :created_by
-      t.integer :updated_by
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
     end
   end

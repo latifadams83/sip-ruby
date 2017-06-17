@@ -2,6 +2,8 @@
 
 one:
   name: MyString
+  staff_category: one
 
 two:
   name: MyString
+  staff_category: two

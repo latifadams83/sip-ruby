@@ -3,8 +3,8 @@ class CreateClassrooms < ActiveRecord::Migration[5.0]
     create_table :classrooms do |t|
       t.string :name
       t.integer :capacity
-      t.integer :created_by
-      t.integer :updated_by
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
     end
   end

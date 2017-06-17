@@ -27,7 +27,7 @@ class BadgesController < ApplicationController
 
     respond_to do |format|
         @badge = Badge.new(badge_params)
-        @badge.created_by = current_user.id
+        @badge.created_by = current_user.email
       if @badge.save
         format.html { redirect_to @badge, notice: 'Badge was successfully created.' }
         format.json { render :show, status: :created, location: @badge }
@@ -40,7 +40,7 @@ class BadgesController < ApplicationController
 
   def update
     respond_to do |format|
-      @badge.updated_by = current_user.id
+      @badge.updated_by = current_user.email
       if @badge.update(badge_params)
         format.html { redirect_to @badge, notice: 'Badge was successfully updated.' }
         format.json { render :show, status: :ok, location: @badge }

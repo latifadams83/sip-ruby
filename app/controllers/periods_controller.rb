@@ -18,7 +18,7 @@ class PeriodsController < ApplicationController
 
   def create
     @period = Period.new(period_params)
-    @period.created_by = current_user.id
+    @period.created_by = current_user.email
     respond_to do |format|
       if @period.save
         format.html { redirect_to @period, notice: 'Period was successfully created.' }
@@ -33,7 +33,7 @@ class PeriodsController < ApplicationController
   end
 
   def update
-    @period.updated_by = current_user.id
+    @period.updated_by = current_user.email
     respond_to do |format|
       if @period.update(period_params)
         format.html { redirect_to @period, notice: 'Period was successfully updated.' }

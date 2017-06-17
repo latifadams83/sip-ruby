@@ -20,7 +20,7 @@ class ClassroomsController < ApplicationController
 
   def create
     @classroom = Classroom.new(classroom_params)
-    @classroom.created_by = current_user.id
+    @classroom.created_by = current_user.email
 
     respond_to do |format|
       if @classroom.save
@@ -39,7 +39,7 @@ class ClassroomsController < ApplicationController
   # PATCH/PUT /classrooms/1.json
   def update
     respond_to do |format|
-      @classroom.updated_by = current_user.id
+      @classroom.updated_by = current_user.email
       if @classroom.update(classroom_params)
         format.html { redirect_to classrooms_path, notice: 'Classroom was successfully updated.' }
         format.json { render :show, status: :ok, location: @classroom }

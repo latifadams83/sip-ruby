@@ -20,7 +20,7 @@ class GradelevelsController < ApplicationController
 
   def create
     @gradelevel = Gradelevel.new(gradelevel_params)
-    @gradelevel.created_by = current_user.id
+    @gradelevel.created_by = current_user.email
 
     respond_to do |format|
       if @gradelevel.save
@@ -39,7 +39,7 @@ class GradelevelsController < ApplicationController
   # PATCH/PUT /gradelevels/1.json
   def update
     respond_to do |format|
-          @gradelevel.updated_by = current_user.id
+          @gradelevel.updated_by = current_user.email
       if @gradelevel.update(gradelevel_params)
         format.html { redirect_to @gradelevel, notice: 'Gradelevel was successfully updated.' }
         format.json { render :show, status: :ok, location: @gradelevel }

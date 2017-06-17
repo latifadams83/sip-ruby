@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20170610180403) do
     t.date     "start_date"
     t.date     "end_date"
     t.boolean  "status",        default: true, null: false
-    t.integer  "created_by"
-    t.integer  "updated_by"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["gradelevel_id"], name: "index_badges_on_gradelevel_id", using: :btree
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20170610180403) do
   create_table "classrooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.integer  "capacity"
-    t.integer  "created_by"
-    t.integer  "updated_by"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20170610180403) do
   create_table "gradelevels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.integer  "level"
-    t.integer  "created_by"
-    t.integer  "updated_by"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["level"], name: "index_gradelevels_on_level", unique: true, using: :btree
@@ -62,16 +62,16 @@ ActiveRecord::Schema.define(version: 20170610180403) do
     t.string   "name"
     t.time     "start_time"
     t.time     "end_time"
-    t.integer  "created_by"
-    t.integer  "updated_by"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "programmes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
-    t.integer  "created_by"
-    t.integer  "updated_by"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_programmes_on_name", unique: true, using: :btree
@@ -93,15 +93,18 @@ ActiveRecord::Schema.define(version: 20170610180403) do
     t.string   "email"
     t.string   "phone"
     t.string   "logo"
-    t.integer  "created_by"
-    t.integer  "updated_by"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "staff_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "name"
-    t.index ["name"], name: "index_staff_categories_on_name", unique: true, using: :btree
+  create_table "staff_departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "name"
+    t.string   "creatd_by"
+    t.string   "updated_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "staffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -114,22 +117,25 @@ ActiveRecord::Schema.define(version: 20170610180403) do
     t.string   "marital_status"
     t.string   "phone"
     t.date     "joining_date"
-    t.integer  "staff_category_id"
+    t.integer  "staff_department_id"
     t.date     "employment_date"
     t.string   "employee_id"
+    t.string   "qualification"
+    t.string   "specialization"
     t.string   "rank"
     t.string   "registered_no"
     t.string   "sssnit_no"
-    t.boolean  "portal_access"
     t.integer  "user_id"
-    t.integer  "created_by"
-    t.integer  "updated_by"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.string   "photo"
     t.boolean  "is_active",              default: true, null: false
     t.string   "slug"
     t.index ["slug"], name: "index_staffs_on_slug", unique: true, using: :btree
+    t.index ["staff_department_id"], name: "index_staffs_on_staff_department_id", using: :btree
+    t.index ["user_id"], name: "index_staffs_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -149,6 +155,7 @@ ActiveRecord::Schema.define(version: 20170610180403) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
   add_foreign_key "badges", "gradelevels"

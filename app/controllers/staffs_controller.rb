@@ -19,7 +19,7 @@ class StaffsController < ApplicationController
 
   def create
     @staff = Staff.new(staff_params)
-    @staff.created_by = current_user.id
+    @staff.created_by = current_user.email
 
     respond_to do |format|
       if @staff.save
@@ -34,7 +34,7 @@ class StaffsController < ApplicationController
 
   def update
     respond_to do |format|
-      @staff.updated_by = current_user.id
+      @staff.updated_by = current_user.email
       if @staff.update(staff_params)
         format.html { redirect_to @staff, notice: 'Staff was successfully updated.' }
         format.json { render :show, status: :ok, location: @staff }
@@ -61,7 +61,7 @@ class StaffsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def staff_params
-      params.require(:staff).permit(:title, :first_name, :middle_name, :last_name, :gender, :date_of_birth, :religious_denomination, :disability, :marital_status, :photo, :joining_date, :staff_category_id, :specialization, :appointment_date, :sssnit_no, :employee_id, :rank, :registered_no, :portal_access)
+      params.require(:staff).permit(:title, :first_name, :last_name, :gender, :date_of_birth, :religious_denomination, :marital_status, :photo, :joining_date, :staff_department_id, :specialization, :employment_id, :sssnit_no, :employee_id, :rank, :registered_no, :qualification)
     end
 
     def user_params
