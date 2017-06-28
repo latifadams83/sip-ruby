@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Sip</title>
+    <title>Sip | <%= yield :page_title %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -83,18 +83,14 @@
         </div>
     </nav>
 
-    <div class="content-wrapper py-3 " style="margin-top: 55px;">
-
+    <div class="content-wrapper" style="margin-top: 55px;">
+      <ol class="breadcrumb">
+        <%= render_breadcrumbs %>
+      </ol>
       <div class="container-fluid" >
-
-        <span class="border-top-0">
-          <h4 class="ml-auto"><%= yield :page_title %> </h4>
-        </span>
-        <hr class="mt-0">
         <%= yield %>
       </div><!-- /#wrapper -->
     </div>
-
   </body>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 

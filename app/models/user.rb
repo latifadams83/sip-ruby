@@ -6,7 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
 	 EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\z/i
 	 validates_uniqueness_of :email
 	 validates_presence_of :email, :password, :role
@@ -14,22 +13,22 @@ class User < ApplicationRecord
 
 
   def super?
-   self.role == "super administrator"
+   self.role.name == "super administrator"
   end
 
   def admin?
-   self.role == "administrator"
+   self.role.name == "administrator"
   end
 
   def teacher?
-   self.role == "teacher"
+   self.role.name == "teacher"
   end
 
   def student?
-   self.role == "student"
+   self.role.name == "student"
   end
 
   def guardian?
-   self.role == "guardian"
+   self.role.name == "guardian"
   end
 end

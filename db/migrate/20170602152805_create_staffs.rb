@@ -18,6 +18,7 @@ class CreateStaffs < ActiveRecord::Migration[5.0]
       t.string :rank
       t.string :registered_no
       t.string :sssnit_no
+      t.boolean :portal_access, null: false, default: false
       t.integer :user_id
       t.string :created_by
       t.string :updated_by

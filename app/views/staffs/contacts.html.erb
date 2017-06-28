@@ -1,0 +1,4 @@
+<%= provide(:page_title, "#{@staff.full_name} Address & Contact Info")%>
+<%= provide(:contacts_active, "active")%>
+
+<%= render partial: 'staff', locals: {staff: @staff, tab_content: 'contact_details'} %>

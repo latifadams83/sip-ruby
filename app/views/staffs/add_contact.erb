@@ -1,0 +1,8 @@
+<%= provide(:page_title, "Add Contact Info")%>
+<%= provide(:contacts_active, "active")%>
+
+<div class="card my-5 border-0">
+    <%= render(partial: 'tabs', locals: {staff: @staff, addresses_contacts_active: 'active'}) %>
+
+  <%= render(partial: 'contact_form', locals: {staff: @staff}) %>
+</div>

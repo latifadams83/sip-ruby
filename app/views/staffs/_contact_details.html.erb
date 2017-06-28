@@ -1,0 +1,55 @@
+<% if @staff_address.present? && @staff_contact.present? %>
+<div class="card-block">
+  <span class="card-title mb-0 ">
+    <%= link_to "#{content_tag(:i, '', class: 'fa fa-pencil')}".html_safe, edit_contact_staff_path(staff), class: "btn btn-primary btn-sm float-right " %>
+    <p class="my-1"><strong>Address Info</strong></p>
+  </span>
+  <hr class="mt-0">
+  <table class="table table-sm">
+    <tr>
+      <td>Street Address</td>
+      <td><%= @staff_address.street_address %></td>
+    </tr>
+    <tr>
+      <td>City/Town</td>
+      <td><%= @staff_address.city %></td>
+    </tr>
+    <tr>
+      <td>Region/State</td>
+      <td><%= @staff_address.region %></td>
+    </tr>
+    <tr>
+      <td>Postal Code:</td>
+      <td><%= @staff_address.postal_code %></td>
+    </tr>
+  </table>
+</div>
+<div class="card-block">
+  <p class="card-title mb-0"><strong>Contact Info</strong></p>
+  <hr class="mt-0">
+  <table class="table table-sm">
+    <tr>
+      <td>Mobile Phone:</td>
+      <td><%= @staff_contact.mobile_phone %></td>
+    </tr>
+    <tr>
+      <td>Home Phone:</td>
+      <td><%= @staff_contact.home_phone %></td>
+    </tr>
+    <tr>
+      <td>Office Phone:</td>
+      <td><%= @staff_contact.office_phone %></td>
+    </tr>
+    <tr>
+      <td>Work Email:</td>
+      <td><%= @staff_contact.work_email %></td>
+    </tr>
+    <tr>
+      <td>Personal Email:</td>
+      <td><%= @staff_contact.personal_email %></td>
+    </tr>
+  </table>
+</div>
+<% else %>
+  <%= link_to('Add Contact Info', add_contact_staff_path) %>
+<% end %>

@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   root 'dashboard#index'
   devise_for :users
@@ -12,6 +13,12 @@ Rails.application.routes.draw do
     #Staff Resources
     resources :staff_departments
     resources :staffs do
+      member do
+        get :contacts
+        get :add_contact
+        get :edit_contact
+        put :update_contact
+      end
       collection do
         get :manage
         # put :action

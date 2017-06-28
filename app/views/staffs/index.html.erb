@@ -1,5 +1,5 @@
 <%= provide(:page_title, "#{content_tag(:i, ' Staff', class: 'fa fa-list')}".html_safe)%>
-<div class="card">
+<div class="card border-0">
   <table class="table table-sm table-striped">
     <thead>
       <tr>
@@ -10,7 +10,18 @@
     </thead>
 
     <tbody>
-      <%= render @staffs %>
+      <% @staffs.each do |staff| %>
+      <tr id="staffRow_<%= staff.id %>">
+        <td><%= staff.full_name %></td>
+        <td><%= staff.staff_department.name %></td>
+        <td>
+          <div class="button-group" role="group" aria-label="Actions">
+            <%= link_to "#{content_tag(:i, '', :class => ("fa fa-info-circle"))}".html_safe, staff_path(staff), class: "btn btn-primary btn-sm"%>
+            <%= link_to "#{content_tag(:i, '', :class => ("fa fa-pencil"))}".html_safe, edit_staff_path(staff), class: "btn btn-warning btn-sm"%>
+          </div>
+        </td>
+      </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

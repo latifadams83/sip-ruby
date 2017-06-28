@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610180403) do
+ActiveRecord::Schema.define(version: 20170628154040) do
 
   create_table "badges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
@@ -99,6 +99,34 @@ ActiveRecord::Schema.define(version: 20170610180403) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "staff_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "region"
+    t.string   "postal_code"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.integer  "staff_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["staff_id"], name: "index_staff_addresses_on_staff_id", using: :btree
+  end
+
+  create_table "staff_contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "mobile_phone"
+    t.string   "home_phone"
+    t.string   "office_phone"
+    t.string   "work_phone"
+    t.string   "personal_email"
+    t.string   "work_email"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.integer  "staff_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["staff_id"], name: "index_staff_contacts_on_staff_id", using: :btree
+  end
+
   create_table "staff_departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "creatd_by"
@@ -125,13 +153,14 @@ ActiveRecord::Schema.define(version: 20170610180403) do
     t.string   "rank"
     t.string   "registered_no"
     t.string   "sssnit_no"
+    t.boolean  "portal_access",          default: false, null: false
     t.integer  "user_id"
     t.string   "created_by"
     t.string   "updated_by"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "photo"
-    t.boolean  "is_active",              default: true, null: false
+    t.boolean  "is_active",              default: true,  null: false
     t.string   "slug"
     t.index ["slug"], name: "index_staffs_on_slug", unique: true, using: :btree
     t.index ["staff_department_id"], name: "index_staffs_on_staff_department_id", using: :btree
@@ -160,4 +189,6 @@ ActiveRecord::Schema.define(version: 20170610180403) do
 
   add_foreign_key "badges", "gradelevels"
   add_foreign_key "badges", "programmes"
+  add_foreign_key "staff_addresses", "staffs"
+  add_foreign_key "staff_contacts", "staffs"
 end

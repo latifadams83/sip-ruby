@@ -1,0 +1,42 @@
+  <span class="card-title mb-0 ">
+    <%= link_to "#{content_tag(:i, '', class: 'fa fa-pencil')}".html_safe, edit_staff_path(staff), class: "btn btn-primary btn-sm float-right " %>
+    <p class="my-1"><strong>General Info</strong></p>
+  </span>
+  <hr class="mt-0">
+  <table class="table table-sm">
+    <tr >
+      <td>Joined Date:</td>
+      <td ><%= staff.joining_date.strftime("%d %B, %Y") %></td>
+    </tr>
+    <tr>
+      <td>Qualification:</td>
+      <td><%= staff.qualification %></td>
+    </tr>
+    <tr>
+      <td>Rank:</td>
+      <td><%= staff.rank %></td>
+    </tr>
+    <tr>
+      <td>SSSNIT No:</td>
+      <td><%= staff.sssnit_no %></td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td><%= staff.gender %></td>
+    </tr>
+
+    <tr>
+      <td>Date of birth:</td>
+      <td><%= staff.date_of_birth %></td>
+    </tr>
+
+    <tr>
+      <td>Religion:</td>
+      <td><%= staff.religious_denomination %></td>
+    </tr>
+
+    <tr>
+      <td>Marital status:</td>
+      <td><%= staff.marital_status %></td>
+    </tr>
+  </table>

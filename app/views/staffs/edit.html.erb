@@ -1,4 +1,4 @@
-<%= provide(:page_title, "#{content_tag(:i, ' Personal Information', class: 'fa fa-pencil')}".html_safe)%>
+<%= provide(:page_title, "Edit #{@staff.full_name}")%>
 <%= provide(:personal_active, "active") %>
 
 <%= render(partial: 'form', locals: {staff: @staff, back_link: "staff_path", link_params: [@staff.id],action_text: "Update"}) %>

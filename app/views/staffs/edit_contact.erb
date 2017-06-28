@@ -1,0 +1,4 @@
+<%= provide(:page_title, "Edit Contact Info".html_safe)%>
+<%= provide(:contacts_active, "active")%>
+
+<%= render partial: 'staff', locals: {staff: @staff, tab_content: 'contact_form' } %>

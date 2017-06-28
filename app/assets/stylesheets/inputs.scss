@@ -1,7 +1,8 @@
 .simple_form{
   .form-text{margin: 0px; font-size: 0.8rem; color: #A19B9B; display: inline !important; padding-right: 2px;}
-  @media (max-width:600px){div.form-control-label {text-align:left !important;}}
-  input.string, select.select, input.integer, textarea{max-width: 350px;}
+  label.form-control-label {text-align:right !important;}
+  @media (max-width:770px){label.form-control-label {text-align:left !important;}}
+  input.string, select.select, input.integer, textarea, input.password{max-width: 350px;}
   div.required{abbr{text-decoration: none; color: red;}}
   span.radio{margin-right: 20px;}
   span.help-block{font-size: 0.8em; font-style: italic; color: red;}

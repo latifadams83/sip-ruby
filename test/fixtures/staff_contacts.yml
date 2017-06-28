@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mobile_phone: MyString
+  home_phone: MyString
+  office_phone: MyString
+  work_phone: MyString
+  personal_emil: MyString
+  work_email: MyString
+  created_by: MyString
+  updated_by: MyString
+  staff: one
+
+two:
+  mobile_phone: MyString
+  home_phone: MyString
+  office_phone: MyString
+  work_phone: MyString
+  personal_emil: MyString
+  work_email: MyString
+  created_by: MyString
+  updated_by: MyString
+  staff: two

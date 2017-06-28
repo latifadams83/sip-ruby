@@ -1,31 +1,17 @@
-<div class="card-header">
-  <ul class="nav nav-tabs card-header-tabs">
+  <ul class="nav nav-tabs ">
     <% if staff.new_record? %>
       <li class="nav-item">
-        <%= link_to("Profile", new_staff_path, class: "nav-link #{yield :personal_active}") %>
+        <%= link_to("#{content_tag(:i, 'Profile', class: 'fa fa-info-circle')}".html_safe, new_staff_path, class: "nav-link #{yield :profile_active}") %>
       </li>
       <li class="nav-item">
-        <%= link_to("Employment Info", "", class: "nav-link #{yield :employment_active}") %>
-      </li>
-      <li class="nav-item">
-        <%= link_to("Qualification", "", class: "nav-link #{yield :qualification_active}") %>
-      </li>
-      <li class="nav-item">
-        <%= link_to("Contact Info", "", class: "nav-link #{yield :contact_active}") %>
+        <%= link_to("Address & Contacts", "", class: "nav-link #{yield :contacts_active}") %>
       </li>
     <% else %>
       <li class="nav-item">
-        <%= link_to("Personal Info", new_staff_path, class: "nav-link #{yield :personal_active}") %>
+        <%= link_to("#{content_tag(:i, ' Profile', class: 'fa fa-info-circle')}".html_safe, staff_path, class: "nav-link #{yield :profile_active}") %>
       </li>
       <li class="nav-item">
-        <%= link_to("Employment Info", "", class: "nav-link #{yield :employment_active}") %>
-      </li>
-      <li class="nav-item">
-        <%= link_to("Qualification", "", class: "nav-link #{yield :qualification_active}") %>
-      </li>
-      <li class="nav-item">
-        <%= link_to("Contact Info", "", class: "nav-link #{yield :contact_active}") %>
+        <%= link_to("Address & Contacts", contacts_staff_path, class: "nav-link #{yield :contacts_active}") %>
       </li>
     <% end %>
   </ul>
-</div>

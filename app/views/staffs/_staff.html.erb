@@ -1,10 +1,28 @@
-<tr id="staffRow_<%= staff.id %>">
-  <td><%= staff.full_name %></td>
-  <td><%= staff.staff_department.name %></td>
-  <td>
-    <div class="button-group" role="group" aria-label="Actions">
-      <%= link_to "#{content_tag(:i, '', :class => ("fa fa-eye"))}".html_safe, staff_path(staff), class: "btn btn-primary btn-sm"%>
-      <%= link_to "#{content_tag(:i, '', :class => ("fa fa-pencil"))}".html_safe, edit_staff_path(staff), class: "btn btn-warning btn-sm"%>
+<div class="row">
+  <div class="col-md-3">
+    <div class="card border-0 border-shadow-1 my-4 ">
+      <div class="card-block text-center">
+        <%= image_tag(staff.photo.present? ? staff.photo : 'no_staff_img.png', size: '100x100', class: 'card-img-top rounded-circle ') %>
+        <p class="card-title py-3"><%= staff.full_name.upcase %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Departmment:&nbsp; </strong><%= staff.staff_department.name %></li>
+        <li class="list-group-item"><strong>Specialization:&nbsp; </strong><%= staff.specialization %></li>
+      </ul>
+      <div class="card-block">
+        <%= link_to "#{content_tag(:i, '  Export', class: 'fa fa-download')}".html_safe, "", class: "btn btn-success btn-sm card-link" %>
+
+      </div>
     </div>
-  </td>
-</tr>
+  </div>
+  <div class="col-md-9 pl-0">
+    <div class="card border-0 ">
+      <div class="card-block">
+        <%= render partial: 'tabs', locals: {:staff => staff} %>
+      </div>
+      <div class="card-block">
+        <%= render partial: "#{tab_content}", locals: {staff: staff} %>
+      </div>
+    </div>
+  </div>
+</div>
